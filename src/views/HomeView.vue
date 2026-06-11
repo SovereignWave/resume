@@ -1,131 +1,73 @@
 <template>
-  <div class="home bg-gradient-to-b from-white to-gray-100 dark:from-gray-900 dark:to-gray-800 min-h-screen">
-    <div class="container mx-auto px-4 py-12">
-      <h1 class="text-5xl font-bold text-center my-8 text-gray-900 dark:text-white" v-scroll-animation>Jared Wienen</h1>
-      <h2 class="text-3xl text-center mb-4 text-gray-700 dark:text-gray-300" v-scroll-animation>Software Engineer</h2>
-      <p class="text-center mb-12 max-w-2xl mx-auto text-gray-600 dark:text-gray-400" v-scroll-animation>
-        Experienced Applications Engineer and Freelance Programmer specializing in responsive web development,
-        CMS, portals, mobile, and custom web applications.
+  <div class="home">
+    <section class="container mx-auto px-6 pt-24 pb-20 text-center">
+      <p class="text-gold-400 uppercase tracking-[0.3em] text-xs mb-6" v-scroll-animation>Software Engineer</p>
+      <h1 class="font-display text-5xl md:text-7xl font-medium text-zinc-100 mb-8" v-scroll-animation>
+        Jared Wienen
+      </h1>
+      <p class="max-w-2xl mx-auto text-lg text-zinc-400 leading-relaxed mb-12" v-scroll-animation>
+        Seven-plus years of professional programming across web development, AI-driven engineering,
+        and production internal tooling — building near-autonomous delivery pipelines, MCP server
+        integrations, and AI-native solutions for top FAANG companies.
       </p>
-      
-      <div class="flex justify-center space-x-4 mb-16" v-scroll-animation>
-        <a href="mailto:jaredwienen@gmail.com" class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-3 px-6 rounded-full transition duration-300 transform hover:scale-105">
-          Contact Me
+      <div class="flex justify-center space-x-4" v-scroll-animation>
+        <a href="https://linkedin.com/in/jaredwienen" target="_blank" rel="noopener"
+           class="bg-gold-400 hover:bg-gold-300 text-ink-950 font-semibold py-3 px-8 rounded-full transition duration-300">
+          Connect on LinkedIn
         </a>
-        <a href="/Jared_Wienen_Resume.pdf" target="_blank" class="bg-green-500 hover:bg-green-700 text-white font-bold py-3 px-6 rounded-full transition duration-300 transform hover:scale-105">
-          Download Resume
-        </a>
+        <router-link to="/experience"
+           class="border border-white/15 hover:border-gold-400 text-zinc-200 font-semibold py-3 px-8 rounded-full transition duration-300">
+          View Experience
+        </router-link>
       </div>
+    </section>
 
-      <h3 class="text-4xl font-bold text-center mb-12 text-gray-800 dark:text-white" v-scroll-animation>Services I Offer</h3>
-      
-      <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
-        <div v-for="(service, index) in services" :key="index" 
-             class="bg-white dark:bg-gray-800 rounded-lg shadow-lg overflow-hidden transform transition duration-500 hover:scale-105"
+    <section class="container mx-auto px-6 pb-24">
+      <h2 class="font-display text-3xl text-center text-zinc-100 mb-12" v-scroll-animation>What I Build</h2>
+      <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
+        <div v-for="(service, index) in services" :key="index"
+             class="bg-white/5 backdrop-blur rounded-2xl ring-1 ring-white/10 p-6 hover:ring-gold-400/40 transition duration-300"
              v-scroll-animation>
-          <div class="p-6">
-            <div class="text-4xl mb-4 text-blue-500">
-              <component :is="service.icon" class="w-12 h-12" />
-            </div>
-            <h4 class="text-2xl font-bold mb-2 text-gray-900 dark:text-white">{{ service.title }}</h4>
-            <p class="text-gray-600 dark:text-gray-400">{{ service.description }}</p>
-          </div>
-          <div class="px-6 py-4 bg-gray-100 dark:bg-gray-700">
-            <ul class="list-disc list-inside text-gray-700 dark:text-gray-300">
-              <li v-for="(feature, fIndex) in service.features" :key="fIndex">{{ feature }}</li>
-            </ul>
-          </div>
+          <component :is="service.icon" class="w-8 h-8 text-gold-400 mb-4" />
+          <h3 class="font-display text-xl text-zinc-100 mb-2">{{ service.title }}</h3>
+          <p class="text-sm text-zinc-400 leading-relaxed">{{ service.description }}</p>
         </div>
       </div>
-
-      <div class="text-center mt-16" v-scroll-animation>
-        <h4 class="text-2xl font-bold mb-4 text-gray-800 dark:text-white">Need Something Else?</h4>
-        <p class="text-gray-600 dark:text-gray-400 mb-6">I'm always open to discussing new projects and opportunities.</p>
-        <a href="#contact" class="bg-purple-500 hover:bg-purple-700 text-white font-bold py-3 px-6 rounded-full transition duration-300 transform hover:scale-105">
-          Let's Talk About Your Project
-        </a>
-      </div>
-    </div>
+    </section>
   </div>
 </template>
 
 <script>
 import { ref } from 'vue'
-import { CodeBracketIcon, GlobeAltIcon, CpuChipIcon, LightBulbIcon } from '@heroicons/vue/24/outline'
+import { CodeBracketIcon, CpuChipIcon, ServerStackIcon, BoltIcon } from '@heroicons/vue/24/outline'
 
 export default {
   name: 'HomeView',
-  components: {
-    CodeBracketIcon,
-    GlobeAltIcon,
-    CpuChipIcon,
-    LightBulbIcon
-  },
+  components: { CodeBracketIcon, CpuChipIcon, ServerStackIcon, BoltIcon },
   setup() {
     const services = ref([
       {
-        title: 'Custom App Development',
-        description: 'Tailored mobile and web applications to meet your specific needs.',
-        icon: CodeBracketIcon,
-        features: [
-          'Native and cross-platform apps',
-          'Intuitive user interfaces',
-          'Scalable backend solutions'
-        ]
+        title: 'MCP Server Integrations',
+        description: 'Model Context Protocol servers connecting AI agents to enterprise platforms with OAuth 2.0-secured APIs.',
+        icon: ServerStackIcon
       },
       {
-        title: 'Website Development',
-        description: 'Responsive and engaging websites that represent your brand.',
-        icon: GlobeAltIcon,
-        features: [
-          'Modern, responsive designs',
-          'SEO optimization',
-          'Content Management Systems'
-        ]
+        title: 'Agentic AI Workflows',
+        description: 'Near-autonomous delivery pipelines — requirements decomposition, code generation, testing, and deployment.',
+        icon: CpuChipIcon
       },
       {
-        title: 'AI Model Training',
-        description: 'Harness the power of AI with custom-trained models.',
-        icon: CpuChipIcon,
-        features: [
-          'Natural Language Processing',
-          'Computer Vision',
-          'Predictive Analytics'
-        ]
+        title: 'Full-Stack Web Apps',
+        description: 'React, Vue, and Node applications with clean architecture and responsive, accessible interfaces.',
+        icon: CodeBracketIcon
       },
       {
-        title: 'Custom Solutions',
-        description: 'Unique software solutions tailored to your business needs.',
-        icon: LightBulbIcon,
-        features: [
-          'Business process automation',
-          'Data analysis and visualization',
-          'Integration with existing systems'
-        ]
+        title: 'Process Automation',
+        description: 'Internal tooling in Python, Java, and JavaScript that removes manual work from real operations.',
+        icon: BoltIcon
       }
     ])
-
-    return {
-      services
-    }
+    return { services }
   }
 }
 </script>
-
-<style scoped>
-@keyframes float {
-  0% {
-    transform: translateY(0px);
-  }
-  50% {
-    transform: translateY(-10px);
-  }
-  100% {
-    transform: translateY(0px);
-  }
-}
-
-.float-animation {
-  animation: float 3s ease-in-out infinite;
-}
-</style>
