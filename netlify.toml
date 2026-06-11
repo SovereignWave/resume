@@ -1,0 +1,72 @@
+# Security hardening
+
+[[headers]]
+  for = "/*"
+  [headers.values]
+    X-Frame-Options = "DENY"
+    X-Content-Type-Options = "nosniff"
+    Referrer-Policy = "strict-origin-when-cross-origin"
+    Permissions-Policy = "camera=(), microphone=(), geolocation=(), payment=()"
+    Strict-Transport-Security = "max-age=31536000; includeSubDomains"
+    Content-Security-Policy = "default-src 'self'; script-src 'self'; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; font-src https://fonts.gstatic.com; img-src 'self' data:; connect-src 'self'; frame-ancestors 'none'; base-uri 'self'; form-action 'none'"
+
+# Return 410 Gone for common secret-scanner probes
+[[redirects]]
+  from = "/.env*"
+  to = "/gone.txt"
+  status = 410
+  force = true
+
+[[redirects]]
+  from = "/*.env"
+  to = "/gone.txt"
+  status = 410
+  force = true
+
+[[redirects]]
+  from = "/.aws/*"
+  to = "/gone.txt"
+  status = 410
+  force = true
+
+[[redirects]]
+  from = "/.git/*"
+  to = "/gone.txt"
+  status = 410
+  force = true
+
+[[redirects]]
+  from = "/*credentials*"
+  to = "/gone.txt"
+  status = 410
+  force = true
+
+[[redirects]]
+  from = "/*service-account*"
+  to = "/gone.txt"
+  status = 410
+  force = true
+
+[[redirects]]
+  from = "/*secret*"
+  to = "/gone.txt"
+  status = 410
+  force = true
+
+[[redirects]]
+  from = "/wp-admin/*"
+  to = "/gone.txt"
+  status = 410
+  force = true
+
+[[redirects]]
+  from = "/wp-login.php"
+  to = "/gone.txt"
+  status = 410
+  force = true
+
+# SPA fallback (must come last)
+[[redirects]]
+  from = "/*"
+  to = "/index.html"
+  status = 200
