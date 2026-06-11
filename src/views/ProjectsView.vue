@@ -59,7 +59,7 @@ export default {
             'Custom dark design system with Tailwind',
             'Continuous deployment from GitHub'
           ],
-          link: 'https://github.com/indohippi/resume',
+          link: 'https://github.com/SovereignWave/resume',
           linkLabel: 'View on GitHub'
         },
         {
