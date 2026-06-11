@@ -1,25 +1,13 @@
-# portfolio-app
+# jaredwienen.com
 
-## Project setup
+Personal portfolio site for Jared Wienen - Software Engineer.
+
+Built with Vue 3, Vue Router, and Tailwind CSS. Deployed on Netlify with continuous deployment from this repository.
+
+## Development
+
 ```
 npm install
+npm run serve   # local dev server
+npm run build   # production build to /dist
 ```
-
-### Compiles and hot-reloads for development
-```
-npm run serve
-```
-
-### Compiles and minifies for production
-```
-npm run build
-```
-
-### Lints and fixes files
-```
-npm run lint
-```
-
-### Customize configuration
-See [Configuration Reference](https://cli.vuejs.org/config/).
-# resume
