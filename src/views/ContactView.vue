@@ -10,7 +10,7 @@
          class="bg-gold-400 hover:bg-gold-300 text-ink-950 font-semibold py-3 px-8 rounded-full transition duration-300">
         Message on LinkedIn
       </a>
-      <a href="https://github.com/indohippi" target="_blank" rel="noopener"
+      <a href="https://github.com/SovereignWave" target="_blank" rel="noopener"
          class="border border-white/15 hover:border-gold-400 text-zinc-200 font-semibold py-3 px-8 rounded-full transition duration-300">
         GitHub Profile
       </a>
