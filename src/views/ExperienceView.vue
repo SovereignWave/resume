@@ -10,6 +10,7 @@
           <ul class="space-y-2 text-sm text-zinc-400 leading-relaxed list-disc list-inside">
             <li v-for="(r, rIndex) in job.responsibilities" :key="rIndex">{{ r }}</li>
           </ul>
+          <a v-if="job.link" :href="job.link" target="_blank" rel="noopener" class="inline-block mt-4 text-gold-300 hover:text-gold-400 text-sm font-medium transition-colors">{{ job.linkLabel }} &rarr;</a>
         </div>
       </div>
     </div>
@@ -31,8 +32,11 @@ export default {
         responsibilities: [
           'Design and develop MCP (Model Context Protocol) servers enabling AI agents to integrate with enterprise platforms including QuickBooks and Bloomberg, secured with OAuth 2.0 and token-based authentication.',
           'Build and validate near-autonomous AI delivery pipelines covering requirements decomposition, code generation, automated testing, and deployment orchestration.',
-          'Engineer agentic workflows using Claude Code, applying prompt engineering and AI-assisted debugging to accelerate delivery velocity.'
-        ]
+          'Engineer agentic workflows using Claude Code, applying prompt engineering and AI-assisted debugging to accelerate delivery velocity.',
+          'Selected for the contractor review team within weeks of starting; lead projects and contribute to team-wide quality guidelines.'
+        ],
+        link: 'https://www.mercor.com/stories/jared/',
+        linkLabel: 'Watch the Mercor spotlight interview'
       },
       {
         title: 'Software Engineer — AI Model Evaluation (Contract)',
